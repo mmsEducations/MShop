@@ -10,7 +10,5 @@ namespace MShop.Presentation.Controllers
         {
             return View();
         }
-
-
     }
 }

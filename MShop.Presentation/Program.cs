@@ -11,4 +11,8 @@ app.UseRouting();
 //Mvc.3
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); //3
 
+
+//wwwroot : activate content 
+app.UseStaticFiles();
+
 app.Run();

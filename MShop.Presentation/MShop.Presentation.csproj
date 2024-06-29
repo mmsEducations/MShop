@@ -7,7 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\test\**" />
+    <Content Remove="wwwroot\test\**" />
+    <EmbeddedResource Remove="wwwroot\test\**" />
+    <None Remove="wwwroot\test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\presentation\js\main.js" />
+    <None Include="wwwroot\presentation\lib\easing\easing.js" />
+    <None Include="wwwroot\presentation\lib\easing\easing.min.js" />
+    <None Include="wwwroot\presentation\lib\owlcarousel\LICENSE" />
+    <None Include="wwwroot\presentation\lib\owlcarousel\owl.carousel.js" />
+    <None Include="wwwroot\presentation\lib\owlcarousel\owl.carousel.min.js" />
+    <None Include="wwwroot\presentation\mail\contact.js" />
+    <None Include="wwwroot\presentation\mail\contact.php" />
+    <None Include="wwwroot\presentation\mail\jqBootstrapValidation.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\admin\" />
   </ItemGroup>
 
 </Project>
