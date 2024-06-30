@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Mapping\" />
+    <Compile Remove="Dtos\**" />
+    <Compile Remove="Mapping\**" />
+    <EmbeddedResource Remove="Dtos\**" />
+    <EmbeddedResource Remove="Mapping\**" />
+    <None Remove="Dtos\**" />
+    <None Remove="Mapping\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MShop.Data\MShop.Data.csproj" />
   </ItemGroup>
 
 </Project>

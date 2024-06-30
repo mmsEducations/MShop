@@ -1,7 +1,20 @@
+using MShop.Business.Services;
+using MShop.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Mvc.1
 builder.Services.AddControllersWithViews();
+
+//Service added.
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+//builder.Services.AddDbContext<MShopContext>(options =>
+//{
+//    options.UseSqlServer("Server=.;Database=MShop;Trusted_Connection=True;Encrypt=False;");
+//});
+
+builder.Services.AddDbContext<MShopContext>();
 
 var app = builder.Build();
 
