@@ -14,12 +14,14 @@ namespace MShop.Data
         //DB Tables 
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
         //...
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Entity Configuration class added 
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new SliderConfiguration());
             //
         }
 

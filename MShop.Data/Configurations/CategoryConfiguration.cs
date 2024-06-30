@@ -25,3 +25,6 @@ namespace MShop.Data.Configurations
 }
 
 //IEntityTypeConfiguration : ilgili Entity için Temel configurasyonları yapmak için kullanılır 
+//Entity objelerinin karşılığı olarak Database de oluşacak tablonun adı,Enitity propertylerinin
+//veri tiplerinin karşılığı ,Veri tiplerinin boyutu vb özetle Database de nasıl bir tablo oluşmasını istiyorsak 
+//burda iligli entity için ayarlamalarını yaparız.
