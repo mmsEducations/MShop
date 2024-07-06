@@ -11,16 +11,19 @@ namespace MShop.Presentation.Controllers
 
 
         private readonly ICategoryService _categoryService;
-        public HomeController(ICategoryService categoryService, MShopContext context)
+        private readonly ISliderService _sliderService;
+        public HomeController(ICategoryService categoryService, MShopContext context, ISliderService sliderService)
         {
             _categoryService = categoryService;
             _context = context;
+            _sliderService = sliderService;
         }
 
         //BaseURl/Home/Index
         [HttpGet]
         public IActionResult Index()
         {
+            var sliders = _sliderService.GetSliders();
 
             var vategories = _context.Categories.ToList();
             return View(vategories);

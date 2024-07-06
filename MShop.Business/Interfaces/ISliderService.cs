@@ -1,9 +1,9 @@
-﻿using MShop.Data.Entities;
+﻿using MShop.Business.Dtos;
 
 namespace MShop.Business
 {
     public interface ISliderService
     {
-        List<Slider> GetSliders();
+        List<SliderDto> GetSliders();
     }
 }

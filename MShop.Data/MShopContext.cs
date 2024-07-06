@@ -5,6 +5,7 @@ namespace MShop.Data
 {
     public class MShopContext : DbContext
     {
+
         //public MShopContext(DbContextOptions<MShopContext> options) : base(options)
         //{
 
@@ -24,7 +25,6 @@ namespace MShop.Data
             //Entity Configuration class added 
             modelBuilder.AddCustomEntityConfigurations();
         }
-        -
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

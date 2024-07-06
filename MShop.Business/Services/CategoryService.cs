@@ -14,6 +14,7 @@ namespace MShop.Business
         public List<Category> GetCategories()
         {
             var categories = _context.Categories.ToList();
+
             return categories;
         }
 

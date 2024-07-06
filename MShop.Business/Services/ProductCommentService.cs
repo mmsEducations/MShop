@@ -1,5 +1,4 @@
-﻿using MShop.Business.Interfaces;
-using MShop.Data;
+﻿using MShop.Data;
 using MShop.Data.Entities;
 
 namespace MShop.Business

@@ -6,8 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 //Mvc.1
 builder.Services.AddControllersWithViews();
 
-//Services added.
+//Business Services added.
 builder.Services.AddServiceExtensions();
+
+
+//AutoMapper Profile added.
+builder.Services.AddAutoMapperExtensions();
 
 //builder.Services.AddDbContext<MShopContext>(options =>
 //{
