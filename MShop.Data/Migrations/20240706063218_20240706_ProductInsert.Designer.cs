@@ -4,6 +4,7 @@ using MShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MShop.Data.Migrations
 {
     [DbContext(typeof(MShopContext))]
-    partial class MShopContextModelSnapshot : ModelSnapshot
+    [Migration("20240706063218_20240706_ProductInsert")]
+    partial class _20240706_ProductInsert
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,7 +71,6 @@ namespace MShop.Data.Migrations
 
                     b.Property<string>("MainDescription")
                         .IsRequired()
-                        .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("MarketPrice")
@@ -82,8 +84,7 @@ namespace MShop.Data.Migrations
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<short>("StockQuantity")
                         .HasColumnType("smallint");
@@ -92,7 +93,7 @@ namespace MShop.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("MShop.Data.Entities.ProductComment", b =>
@@ -104,18 +105,15 @@ namespace MShop.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductCommentId"));
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommenterEmail")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommenterName")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -127,7 +125,7 @@ namespace MShop.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductComments", (string)null);
+                    b.ToTable("ProductComment");
                 });
 
             modelBuilder.Entity("MShop.Data.Entities.ProductImage", b =>
@@ -149,7 +147,7 @@ namespace MShop.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages", (string)null);
+                    b.ToTable("ProductImage");
                 });
 
             modelBuilder.Entity("MShop.Data.Entities.Slider", b =>

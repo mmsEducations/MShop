@@ -1,14 +1,13 @@
-using MShop.Business;
 using MShop.Data;
+using MShop.Presentation.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Mvc.1
 builder.Services.AddControllersWithViews();
 
-//Service added.
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<ISliderService, SliderService>();
+//Services added.
+builder.Services.AddServiceExtensions();
 
 //builder.Services.AddDbContext<MShopContext>(options =>
 //{

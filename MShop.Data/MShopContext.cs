@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MShop.Data.Configurations;
 using MShop.Data.Entities;
 
 namespace MShop.Data
@@ -15,16 +14,17 @@ namespace MShop.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         //...
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Entity Configuration class added 
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new SliderConfiguration());
-            //
+            modelBuilder.AddCustomEntityConfigurations();
         }
-
+        -
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
