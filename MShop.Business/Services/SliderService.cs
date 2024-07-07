@@ -16,11 +16,11 @@ namespace MShop.Business
         public List<SliderDto> GetSliders()
         {
             var sliders = _context.Sliders.ToList();
+            //List<SliderDto> işlemdençıkan veri = _mapper.Map<Geriye döndüreceğimiz yeni verinin türü(tipi)>(Dönüştürülecek veri);
             List<SliderDto> sliderDtos = _mapper.Map<List<SliderDto>>(sliders);
             return sliderDtos;
         }
 
     }
-
 
 }

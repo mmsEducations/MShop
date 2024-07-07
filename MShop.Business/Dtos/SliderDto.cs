@@ -7,7 +7,7 @@
         public required string Content { get; set; }
         public required string Image { get; set; }
         public required string Sliderposition { get; set; }//Main,Right,Bottom
-        //public int? Order { get; set; }
+        public int? Order { get; set; }
     }
 
 }

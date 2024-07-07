@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MShop.Data.Entities;
+using MShop.Data.Extensions;
 
 namespace MShop.Data
 {
@@ -24,7 +25,11 @@ namespace MShop.Data
         {
             //Entity Configuration class added 
             modelBuilder.AddCustomEntityConfigurations();
+
+            //Dummy data Created
+            modelBuilder.CreateSeedData();
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
