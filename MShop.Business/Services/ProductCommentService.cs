@@ -1,7 +1,4 @@
-﻿using MShop.Data;
-using MShop.Data.Entities;
-
-namespace MShop.Business
+﻿namespace MShop.Business
 {
     public class ProductCommentService : IProductCommentService
     {

@@ -1,11 +1,13 @@
-﻿using MShop.Data.Entities;
+﻿using MShop.Business.Enums;
 
 namespace MShop.Business
 {
     public interface IProductService
     {
-        Product GetProductById(int id);
-        List<Product> GetProducts();
-        bool InsertProduct(Product product);
+        ProductDto GetProductById(int id);
+        List<ProductDto> GetProducts();
+        bool InsertProduct(ProductDto product);
+
+        List<ProductDto> GetProductsByType(ProductType productType);
     }
 }

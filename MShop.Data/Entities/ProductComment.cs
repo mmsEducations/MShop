@@ -8,7 +8,7 @@
         public string? Comment { get; set; }
         public required string CommenterName { get; set; }
         public required string CommenterEmail { get; set; }
-        public required Product Product { get; set; }
+        public Product Product { get; set; }
     }
 
 }

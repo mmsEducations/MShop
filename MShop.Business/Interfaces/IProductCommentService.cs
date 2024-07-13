@@ -1,6 +1,4 @@
-﻿using MShop.Data.Entities;
-
-namespace MShop.Business
+﻿namespace MShop.Business
 {
     public interface IProductCommentService
     {

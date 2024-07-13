@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MShop.Business;
-using MShop.Business.Dtos;
-using MShop.Data;
-using MShop.Data.Entities;
+﻿
 
 namespace MShop.Presentation.Controllers
 {
@@ -11,15 +7,13 @@ namespace MShop.Presentation.Controllers
 
         private readonly MShopContext _context;
 
-
         private readonly ICategoryService _categoryService;
         private readonly ISliderService _sliderService;
         private readonly IProductCommentService _productCommentService;
 
-        public HomeController(ICategoryService categoryService, MShopContext context, ISliderService sliderService, IProductCommentService productCommentService)
+        public HomeController(ICategoryService categoryService, ISliderService sliderService, IProductCommentService productCommentService)
         {
             _categoryService = categoryService;
-            _context = context;
             _sliderService = sliderService;
             _productCommentService =
             _productCommentService = productCommentService;
@@ -32,7 +26,7 @@ namespace MShop.Presentation.Controllers
             var sliders = _sliderService.GetSliders();
 
             //HomeModel model = new HomeModel { Sliders = sliders, Categories = _categoryService.GetCategories() };
-            var vategories = _context.Categories.ToList();
+
             return View(sliders);
         }
 

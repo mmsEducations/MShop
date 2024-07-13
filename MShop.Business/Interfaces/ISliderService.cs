@@ -1,6 +1,4 @@
-﻿using MShop.Business.Dtos;
-
-namespace MShop.Business
+﻿namespace MShop.Business
 {
     public interface ISliderService
     {

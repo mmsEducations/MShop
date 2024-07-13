@@ -1,12 +1,10 @@
-﻿using MShop.Data.Entities;
-
-namespace MShop.Business
+﻿namespace MShop.Business
 {
     public interface ICategoryService
     {
-        List<Category> GetCategories();
+        List<CategoryDto> GetCategories();
 
-        Category GetCategoryById(int id);
+        CategoryDto GetCategoryById(int id);
 
         bool InsertCategory(Category category);
     }

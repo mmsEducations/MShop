@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using MShop.Business.Dtos;
-using MShop.Data.Entities;
-
+﻿
 namespace MShop.Business.Mapping
 {
     public class SliderMappingProfile : Profile
@@ -12,6 +9,7 @@ namespace MShop.Business.Mapping
             // CreateMap<DönüştürlecekTip, YeniEldeedilecekModel>()/
             CreateMap<Slider, SliderDto>()//Slider adlı kaynağı "SliderDto" adlı hedefe dönüştürüyoruz
            .ReverseMap();//Yukarıdaki dönüşümün tersini yapar
+
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MShop.Data.Entities;
-
+﻿
 namespace MShop.Data.Configurations
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
@@ -15,6 +12,7 @@ namespace MShop.Data.Configurations
             builder.Property(c => c.CategoryName) //property ile ilgili ayarlar yapılır
                    .IsRequired()
                    .HasMaxLength(100);
+
 
             //builder.Property(x => x.Order)
             //        .IsRequired()

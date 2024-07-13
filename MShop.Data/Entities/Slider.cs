@@ -6,6 +6,7 @@
         public required string Header { get; set; }
         public required string Content { get; set; }
         public required string Image { get; set; }
+        //[NotMapped]
         public required string Sliderposition { get; set; }//Main,Right,Bottom
     }
 

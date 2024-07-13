@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MShop.Data.Entities;
-
-namespace MShop.Data.Configurations
+﻿namespace MShop.Data.Configurations
 {
     public class ProductICommentConfiguration : IEntityTypeConfiguration<ProductComment>
     {

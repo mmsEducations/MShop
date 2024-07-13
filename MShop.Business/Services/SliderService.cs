@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using MShop.Business.Dtos;
-using MShop.Data;
+﻿
 
 namespace MShop.Business
 {
@@ -17,6 +15,8 @@ namespace MShop.Business
         {
             var sliders = _context.Sliders.ToList();
             //List<SliderDto> işlemdençıkan veri = _mapper.Map<Geriye döndüreceğimiz yeni verinin türü(tipi)>(Dönüştürülecek veri);
+            // List<SliderDto> sliderDtos = _mapper.Map<sonuc>(kaynak);
+
             List<SliderDto> sliderDtos = _mapper.Map<List<SliderDto>>(sliders);
             return sliderDtos;
         }

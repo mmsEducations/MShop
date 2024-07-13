@@ -1,4 +1,4 @@
-﻿using MShop.Business.Mapping;
+﻿
 
 namespace MShop.Presentation.Extensions
 {
@@ -8,6 +8,10 @@ namespace MShop.Presentation.Extensions
         {
             //Mapping added to here 
             services.AddAutoMapper(typeof(SliderMappingProfile));
+            services.AddAutoMapper(typeof(ProductMappingProfile));
+            services.AddAutoMapper(typeof(CategoryMappingProfile));
+            //...
+            //..
 
         }
     }

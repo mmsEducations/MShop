@@ -1,29 +1,31 @@
-﻿using MShop.Data;
-using MShop.Data.Entities;
-
+﻿
 namespace MShop.Business
 {
     public class CategoryService : ICategoryService
     {
         private readonly MShopContext _context;
-        public CategoryService(MShopContext context)
+        private readonly IMapper _mapper;
+        public CategoryService(MShopContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public List<Category> GetCategories()
+        public List<CategoryDto> GetCategories()
         {
             var categories = _context.Categories.ToList();
-
-            return categories;
+            var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
+            return categoryDtos;
         }
 
-        public Category GetCategoryById(int id)
+        public CategoryDto GetCategoryById(int id)
         {
             var category = _context.Categories
                                    .Where(c => c.CategoryId == id)
                                    .FirstOrDefault();
-            return category;
+            var categoryDto = _mapper.Map<CategoryDto>(category);
+
+            return categoryDto;
         }
 
         public bool InsertCategory(Category category)

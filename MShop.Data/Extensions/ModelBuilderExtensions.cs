@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MShop.Data.Configurations;
-
+﻿
 namespace MShop.Data
 {
     public static class ModelBuilderExtensions

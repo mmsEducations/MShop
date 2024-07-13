@@ -1,6 +1,6 @@
-﻿namespace MShop.Data.Entities
+﻿namespace MShop.Business.Dtos
 {
-    public class Category : BaseEntity
+    public class CategoryDto
     {
         public int CategoryId { get; set; }
         public int? ParentCategoryId { get; set; }
@@ -9,7 +9,4 @@
         public required ICollection<Product> Products { get; set; }
 
     }
-
 }
-
-
