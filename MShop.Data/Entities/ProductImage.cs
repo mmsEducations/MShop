@@ -1,6 +1,6 @@
 ﻿namespace MShop.Data.Entities
 {
-    public class ProductImage
+    public class ProductImage : BaseEntity
     {
         public int ProductImageId { get; set; }
         public int ProductId { get; set; }

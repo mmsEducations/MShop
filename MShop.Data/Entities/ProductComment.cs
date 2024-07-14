@@ -1,6 +1,6 @@
 ﻿namespace MShop.Data.Entities
 {
-    public class ProductComment
+    public class ProductComment : BaseEntity
     {
         public int ProductCommentId { get; set; }
         public int ProductId { get; set; }

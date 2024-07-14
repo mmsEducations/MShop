@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
+
 namespace MShop.Business
 {
     public class CategoryService : ICategoryService
@@ -13,7 +15,17 @@ namespace MShop.Business
 
         public List<CategoryDto> GetCategories()
         {
-            var categories = _context.Categories.ToList();
+            var categories = _context.Categories
+                                     .ToList();
+            var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
+            return categoryDtos;
+        }
+
+        public List<CategoryDto> GetCategoriesWithProducts()
+        {
+            var categories = _context.Categories
+                                      .Include(x => x.Products)
+                                     .ToList();
             var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
             return categoryDtos;
         }

@@ -1,5 +1,4 @@
-﻿using MShop.Business.Enums;
-
+﻿
 namespace MShop.Business
 {
     public interface IProductService
@@ -9,5 +8,13 @@ namespace MShop.Business
         bool InsertProduct(ProductDto product);
 
         List<ProductDto> GetProductsByType(ProductType productType);
+
+        List<ProductDto> GetProductsByCategoriId(int id);
+
+
+        ProductDetailDto GetProductAndSimilarProductsById(int id);
+
+        short GetProductRatingAvg(int id);
+
     }
 }

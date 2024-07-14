@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MShop.Business;
-
-namespace MShop.Presentation.Views.Home.Components.Category
+﻿namespace MShop.Presentation.Views.Home.Components.Category
 {
     public class CategoryViewComponent : ViewComponent
     {
@@ -13,7 +10,7 @@ namespace MShop.Presentation.Views.Home.Components.Category
         }
         public IViewComponentResult Invoke()
         {
-            var categories = _categoryService.GetCategories();
+            var categories = _categoryService.GetCategoriesWithProducts();
             return View(categories);
         }
     }

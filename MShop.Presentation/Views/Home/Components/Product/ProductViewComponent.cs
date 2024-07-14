@@ -1,8 +1,4 @@
 ﻿
-
-
-using MShop.Business.Enums;
-
 namespace MShop.Presentation.Views.Home.Components.Category
 {
     public class ProductViewComponent : ViewComponent

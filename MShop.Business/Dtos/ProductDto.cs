@@ -14,5 +14,8 @@
         public required Category Category { get; set; }
         public required ICollection<ProductImage> ProductImages { get; set; }
         public required ICollection<ProductComment> ProductComments { get; set; }
+
+        public short ProducCommentAvg { get; set; }
+
     }
 }

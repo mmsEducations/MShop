@@ -7,5 +7,7 @@
         CategoryDto GetCategoryById(int id);
 
         bool InsertCategory(Category category);
+
+        List<CategoryDto> GetCategoriesWithProducts();
     }
 }

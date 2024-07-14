@@ -3,10 +3,12 @@
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService, IProductService productService)
         {
             _categoryService = categoryService;
+            _productService = productService;
         }
         public IActionResult Index()
         {
@@ -16,8 +18,8 @@
 
         public IActionResult GetProductByCategory(int id)
         {
-            var category = _categoryService.GetCategoryById(id);
-            return View(category);
+            var productDtos = _productService.GetProductsByCategoriId(id);
+            return View(productDtos);
         }
     }
 }

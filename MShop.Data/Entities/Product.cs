@@ -14,6 +14,8 @@
         public Category Category { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
         public ICollection<ProductComment> ProductComments { get; set; }
+        public bool IsShowCatalog { get; set; }
+
     }
 
 }

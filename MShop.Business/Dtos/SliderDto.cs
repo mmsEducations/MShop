@@ -9,5 +9,4 @@
         public required string Sliderposition { get; set; }//Main,Right,Bottom
         public int? Order { get; set; }
     }
-
 }
