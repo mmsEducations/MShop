@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MShop.Data\MShop.Data.csproj" />
+    <ProjectReference Include="..\MShop.Repository\MShop.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,22 +1,21 @@
 ﻿
 
+using MShop.Repository.Abstract;
+
 namespace MShop.Business
 {
     public class SliderService : ISliderService
     {
-        private readonly MShopContext _context;
+        private readonly ISliderRepository _sliderRepository;
         private readonly IMapper _mapper;
-        public SliderService(MShopContext context, IMapper mapper)
+        public SliderService(ISliderRepository sliderRepository, IMapper mapper)
         {
-            _context = context;
+            _sliderRepository = sliderRepository;
             _mapper = mapper;
         }
         public List<SliderDto> GetSliders()
         {
-            var sliders = _context.Sliders.ToList();
-            //List<SliderDto> işlemdençıkan veri = _mapper.Map<Geriye döndüreceğimiz yeni verinin türü(tipi)>(Dönüştürülecek veri);
-            // List<SliderDto> sliderDtos = _mapper.Map<sonuc>(kaynak);
-
+            var sliders = _sliderRepository.GetAllAsNoTracking();
             List<SliderDto> sliderDtos = _mapper.Map<List<SliderDto>>(sliders);
             return sliderDtos;
         }

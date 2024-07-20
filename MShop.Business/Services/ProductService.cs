@@ -1,31 +1,30 @@
 ﻿
+using MShop.Repository.Abstract;
+
 namespace MShop.Business
 {
     public class ProductService : IProductService
     {
-        private readonly MShopContext _context;
+        private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
-        public ProductService(MShopContext context, IMapper mapper, IConfiguration configuration)
+        public ProductService(IProductRepository productRepository, IMapper mapper, IConfiguration configuration)
         {
-            _context = context;
+            _productRepository = productRepository;
             _mapper = mapper;
             _configuration = configuration;
         }
 
         public List<ProductDto> GetProducts()
         {
-            var products = _context.Products.ToList();
+            var products = _productRepository.GetAllAsNoTracking();
             var productDtos = _mapper.Map<List<ProductDto>>(products);
             return productDtos;
         }
 
         public ProductDto GetProductById(int id)
         {
-            var product = _context.Products
-                                   .Where(c => c.ProductId == id)
-                                   .FirstOrDefault();
-
+            var product = _productRepository.Get(id);
             var productDto = _mapper.Map<ProductDto>(product);
             return productDto;
         }
@@ -33,9 +32,7 @@ namespace MShop.Business
         public bool InsertProduct(ProductDto product)
         {
             var productEntity = _mapper.Map<Product>(product);
-
-            _context.Products.Add(productEntity);
-            return _context.SaveChanges() > 0;
+            return _productRepository.Add(productEntity);
         }
 
         public List<ProductDto> GetProductsByType(ProductType productType)
@@ -43,24 +40,7 @@ namespace MShop.Business
             var productCountSection = _configuration.GetSection("ProductSettings:ProductsToTakeForCatalog").Value;
             int productCount = productCountSection != null ? int.Parse(productCountSection) : 8;
             List<Product> products = new List<Product>();
-            if (productType == ProductType.CatalogProducts)
-            {
-                products = _context.Products
-                                          .Where(x => x.IsShowCatalog)
-                                          .Include(x => x.ProductComments)
-                                          .Include(x => x.ProductImages)
-                                          .Take(productCount).ToList();
-            }
-            else
-            {
-                products = _context.Products
-                                   .Include(x => x.ProductComments)
-                                   .Include(x => x.ProductImages)
-                                   .OrderByDescending(x => x.CreationDate)
-                                   .Take(productCount).ToList();
-            }
-
-
+            products = _productRepository.GetProductsByType((int)productType, productCount);
             var productDtos = _mapper.Map<List<ProductDto>>(products);
 
             return productDtos;
@@ -68,13 +48,7 @@ namespace MShop.Business
 
         public List<ProductDto> GetProductsByCategoriId(int categoryId)
         {
-            var products = _context.Products
-                                    .Where(c => c.CategoryId == categoryId)
-                                    .Include(x => x.ProductComments)
-                                    .Include(x => x.ProductImages)
-                                    .Include(x => x.Category)
-                                   .ToList();
-
+            var products = _productRepository.GetProductsByCategoriId(categoryId);
             var productDtos = _mapper.Map<List<ProductDto>>(products);
             return productDtos;
         }
@@ -82,12 +56,7 @@ namespace MShop.Business
 
         public ProductDto GetProductWithIncludeById(int id)
         {
-            var product = _context.Products
-                                   .Include(x => x.ProductComments)
-                                   .Include(x => x.ProductImages)
-                                   .Where(c => c.ProductId == id)
-                                   .FirstOrDefault();
-
+            var product = _productRepository.GetProductWithIncludeById(id);
             var productDto = _mapper.Map<ProductDto>(product);
             return productDto;
         }
@@ -99,16 +68,9 @@ namespace MShop.Business
 
             var productDetailPageSimilarProductsCount = _configuration.GetSection("ProductSettings:ProductDetailPageSimilarProductsTakeCount").Value;
             int similarProductsCount = productDetailPageSimilarProductsCount != null ? int.Parse(productDetailPageSimilarProductsCount) : 8;
-
-            var products = _context.Products
-                                    .Where(c => c.CategoryId == product.CategoryId)
-                                    .Include(x => x.ProductComments)
-                                   .Include(x => x.ProductImages)
-                                   .Take(similarProductsCount)
-                                   .ToList();
+            var products = _productRepository.GetProductAndSimilarProductsById(product.CategoryId, similarProductsCount);
 
             var similarProducts = _mapper.Map<List<ProductDto>>(products);
-
             //Yorum 
             product.ProducCommentAvg = GetProductRatingAvg(id);
 
@@ -117,12 +79,7 @@ namespace MShop.Business
 
         public short GetProductRatingAvg(int id)
         {
-            short avegrage = Convert.ToInt16(
-                             _context.ProductComments
-                            .Where(x => x.ProductId == id)
-                            .Average(x => x.Rating));
-
-            return avegrage;
+            return _productRepository.GetProductRatingAvg(id);
 
         }
 

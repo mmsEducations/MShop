@@ -1,17 +1,19 @@
-﻿namespace MShop.Business
+﻿using MShop.Repository.Abstract;
+
+namespace MShop.Business
 {
     public class ProductCommentService : IProductCommentService
     {
-        private readonly MShopContext _context;
-        public ProductCommentService(MShopContext context)
+        private readonly IProductCommentRepository _productCommentRepository;
+
+        public ProductCommentService(IProductCommentRepository productCommentRepository)
         {
-            _context = context;
+            _productCommentRepository = productCommentRepository;
         }
 
         public List<ProductComment> GetProductComments()
         {
-            var productComments = _context.ProductComments.ToList();
-            return productComments;
+            return _productCommentRepository.GetAllAsNoTracking();
         }
     }
 
