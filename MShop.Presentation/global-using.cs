@@ -1,7 +1,10 @@
-﻿global using Microsoft.AspNetCore.Mvc;
+﻿global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
 global using MShop.Business;
 global using MShop.Business.Dtos;
 global using MShop.Business.Enums;
 global using MShop.Business.Mapping;
 global using MShop.Data;
 global using MShop.Data.Entities;
+global using MShop.Presentation.Extensions;

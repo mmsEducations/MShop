@@ -9,5 +9,7 @@ namespace MShop.Repository.Concrate
         public SliderRepository(MShopContext context) : base(context)
         {
         }
+
+
     }
 }

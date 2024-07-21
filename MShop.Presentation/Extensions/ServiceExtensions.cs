@@ -1,5 +1,6 @@
 ﻿
 
+using MShop.Business.Interfaces;
 using MShop.Repository.Abstract;
 using MShop.Repository.Concrate;
 
@@ -23,6 +24,9 @@ namespace MShop.Presentation.Extensions
 
             services.AddScoped<IProductCommentService, ProductCommentService>();
             services.AddScoped<IProductCommentRepository, ProductCommentRepository>();
+
+
+            services.AddScoped<IAuthService, AuthService>();
 
         }
     }

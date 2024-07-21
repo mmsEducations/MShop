@@ -1,5 +1,6 @@
 ﻿namespace MShop.Repository.Abstract
 {
+    //Ortak operasyonların imzalarının bulunduğu yer.
     public interface IRepository<TEntity> where TEntity : class
     {
         //Read

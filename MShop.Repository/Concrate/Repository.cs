@@ -4,6 +4,7 @@ using MShop.Repository.Abstract;
 
 namespace MShop.Repository.Concrate
 {
+    //Ortak operasyonların metod Gövdelerinin bulunduğu yer.
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         //Products,Categories,Sliders
@@ -71,6 +72,8 @@ namespace MShop.Repository.Concrate
 
         public bool Save()
         {
+            //Her Crud(Read) hariç bu metodun çağrılması gerekir 
+            //Yapılan değişiklikleri database yansıtır.
             return _context.SaveChanges() > 0;
         }
 
